@@ -86,6 +86,15 @@
   </style>
 </head>
 <body>
+  <div id="intro">
+  <img src="logo.png" alt="Logo Mil Patinhas" class="logo-intro" />
+</div>
+
+<!-- Conteúdo do site -->
+<div id="main-content" style="display: none;">
+  <!-- aqui vai o resto do seu site -->
+  <h1>Promoção Conta Patinhas</h1>
+</div>
   <div class="hero"></div>
   <main class="fade-in">
     <h1>Promoção Conta Patinhas</h1>
@@ -95,5 +104,19 @@
       <iframe src="https://www.instagram.com/p/DMljVZtJcPo/embed" allowtransparency="true"></iframe>
     </div>
   </main>
+  <script>
+  // Espera 3 segundos e então mostra o site
+  setTimeout(() => {
+    const intro = document.getElementById('intro');
+    intro.style.opacity = '0';
+    intro.style.backdropFilter = 'blur(0px)';
+    
+    setTimeout(() => {
+      intro.style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+    }, 1000); // espera a transição terminar
+  }, 3000); // tempo da intro
+</script>
+
 </body>
 </html>
