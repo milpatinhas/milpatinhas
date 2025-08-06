@@ -12,7 +12,7 @@ body, html {
   position: relative;
 }
 
-/* Fundo com patinhas animadas */
+/* Fundo com patinhas animadas no topo */
 .paw-background {
   position: fixed;
   top: 0;
@@ -20,8 +20,7 @@ body, html {
   width: 100%;
   height: 150px;
   pointer-events: none;
-  background-image:
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Paw_print_icon.svg/1024px-Paw_print_icon.svg.png');
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Paw_print_icon.svg/1024px-Paw_print_icon.svg.png');
   background-repeat: repeat-x;
   background-size: 50px 50px;
   animation: pawMove 10s linear infinite;
@@ -33,7 +32,7 @@ body, html {
   to   { background-position-x: 500px; }
 }
 
-/* Barra fixa topo com logo */
+/* Barra fixa topo */
 header {
   position: fixed;
   top: 0;
@@ -49,12 +48,67 @@ header {
   padding: 0 20px;
 }
 header img {
-  height: 50px;
+  height: 100px;
   display: block;
   user-select: none;
 }
 
-/* Espaço para o conteúdo principal */
+/* Intro com fundo animado e logo grande */
+#intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #fff5f9, #ffe6ec);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  opacity: 1;
+  transition: opacity 1s ease;
+  overflow: hidden;
+}
+.intro-logo {
+  width: 150px;
+  max-width: 70%;
+  animation: zoomIn 2s ease forwards;
+  z-index: 2;
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Fundo de patinhas animado na intro */
+.floating-paws {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Paw_print_icon.svg/1024px-Paw_print_icon.svg.png');
+  background-repeat: repeat;
+  background-size: 80px;
+  opacity: 0.03;
+  animation: floatPaws 30s linear infinite;
+  z-index: 1;
+}
+@keyframes floatPaws {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-50px, -100px); }
+}
+
+/* Conteúdo principal */
 main {
   margin-top: 90px;
   padding: 20px;
@@ -64,6 +118,26 @@ main {
   text-align: center;
   position: relative;
   z-index: 5;
+}
+main.fade-in {
+  animation: fadeIn 2s ease-in forwards;
+  opacity: 0;
+  z-index: 5;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Títulos e textos */
+h1 {
+  font-size: 2.5rem;
+  color: #da7b93;
+  margin-bottom: 1rem;
+}
+p {
+  font-size: 1.2rem;
+  color: #4e4e4e;
+  margin-bottom: 2rem;
 }
 
 /* Card do Instagram */
@@ -82,7 +156,7 @@ main {
   border: none;
 }
 
-/* Botão chat whatsapp flutuante */
+/* Botão WhatsApp flutuante */
 .whatsapp-button {
   position: fixed;
   bottom: 30px;
@@ -119,37 +193,40 @@ main {
   }
 }
 
-/* Intro e fade-in */
-#intro {
+.parallax-bg {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: url('LogoMPSVGsf.svg') no-repeat center center;
-  background-size: contain;
-  backdrop-filter: blur(20px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 30;
-  transition: opacity 1s ease;
-}
-main.fade-in {
-  animation: fadeIn 2s ease-in forwards;
-  opacity: 0;
-  z-index: 5;
-}
-@keyframes fadeIn {
-  to { opacity: 1; }
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.2; /* Ajuste conforme a estética desejada */
 }
 
-/* Títulos e textos */
-h1 {
-  font-size: 2.5rem;
+.localizacao {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 40px 20px;
+  text-align: center;
+  z-index: 5;
+  position: relative;
+}
+.localizacao h2 {
+  font-size: 2rem;
   color: #da7b93;
+  margin-bottom: 0.5rem;
+}
+.localizacao p {
+  color: #4e4e4e;
   margin-bottom: 1rem;
 }
-p {
-  font-size: 1.2rem;
-  color: #4e4e4e;
-  margin-bottom: 2rem;
+.mapa {
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  overflow: hidden;
 }

@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Promoção Conta Patinhas | Mil Patinhas</title>
+  <title>Mil Patinhas</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Fundo com patinhas animadas -->
+  <!-- Fundo com patinhas animadas no topo -->
   <div class="paw-background"></div>
 
-  <!-- Barra fixa topo com logo SVG -->
+  <!-- Fundo Parallax -->
+  <div class="parallax-bg"></div>
+
+  <!-- Barra fixa com logo -->
   <header>
     <img src="LogoMPSVGsf.svg" alt="Logo Mil Patinhas" />
   </header>
 
-  <!-- Tela de intro com logo grande -->
-  <div id="intro"></div>
+  <!-- Tela de introdução -->
+  <div id="intro">
+    <div class="floating-paws"></div>
+    <img src="LogoMPSVGsf.svg" alt="Logo Mil Patinhas" class="intro-logo" />
+  </div>
 
   <!-- Botão flutuante WhatsApp -->
   <a
@@ -31,7 +34,7 @@
     rel="noopener"
     class="whatsapp-button"
     aria-label="Fale conosco no WhatsApp"
-    >
+  >
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path
         d="M20.52 3.48A11.76 11.76 0 0012 0C5.373 0 0 5.373 0 12c0 2.107.55 4.078 1.514 5.82L0 24l6.423-1.475A11.932 11.932 0 0012 24c6.627 0 12-5.373 12-12a11.91 11.91 0 00-3.48-8.52zm-8.44 17.4a9.627 9.627 0 01-5.114-1.44l-.367-.22-3.814.877.81-3.728-.238-.38a9.522 9.522 0 01-1.47-5.12c0-5.274 4.28-9.553 9.553-9.553a9.507 9.507 0 016.728 2.791 9.57 9.57 0 012.8 6.766c0 5.274-4.28 9.553-9.553 9.553zm5.356-6.974c-.294-.147-1.737-.857-2.006-.954-.27-.098-.466-.147-.662.148-.197.294-.76.954-.93 1.15-.17.196-.34.22-.634.074-.294-.147-1.24-.457-2.36-1.456-.873-.778-1.46-1.74-1.63-2.034-.17-.294-.018-.45.13-.597.134-.133.294-.34.44-.51.148-.17.197-.293.295-.49.098-.196.05-.367-.025-.514-.074-.147-.662-1.596-.907-2.182-.24-.57-.484-.494-.662-.503l-.565-.01c-.197 0-.516.074-.785.367s-1.03 1.006-1.03 2.45 1.055 2.845 1.202 3.044c.147.196 2.08 3.172 5.04 4.446.705.304 1.254.485 1.683.62.706.225 1.35.193 1.858.117.567-.085 1.737-.71 1.985-1.395.247-.685.247-1.27.172-1.395-.074-.123-.27-.196-.563-.342z"
@@ -42,20 +45,37 @@
 
   <!-- Conteúdo principal -->
   <main class="fade-in" id="main-content" style="display: none;">
-    <h1>Promoção Conta Patinhas</h1>
+    <h1>Nosso Instagram</h1>
     <p>Confira nossos conteúdos e promoções no Instagram!</p>
     <div class="insta-card">
-      <iframe
-        src="https://www.instagram.com/p/DMljVZtJcPo/embed"
-        allowtransparency="true"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
+  <blockquote class="instagram-media"
+    data-instgrm-permalink="https://www.instagram.com/reel/DMp-5zEMlap/"
+    data-instgrm-version="14"
+    style="width:100%; max-width:400px; margin:auto;">
+  </blockquote>
+  <script async src="//www.instagram.com/embed.js"></script>
+</div>
+
+
   </main>
 
+  <section class="localizacao">
+  <h2>Onde estamos</h2>
+  <p>Avenida Dos Tropeiros - Jardim Amazonas, Petrolina - PE</p>
+  <div class="mapa">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15844.523275932674!2d-40.5308926!3d-9.3753375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x773715d805a5399%3A0x48b860d54041f208!2sMil%20Patinhas%20Cl%C3%ADnica%2024h!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr"
+      width="100%"
+      height="350"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</section>
+
   <script>
-    // Intro desaparece após 3 segundos e mostra o conteúdo
     setTimeout(() => {
       const intro = document.getElementById('intro');
       intro.style.opacity = '0';
@@ -64,8 +84,8 @@
         const main = document.getElementById('main-content');
         main.style.display = 'block';
         main.style.opacity = '1';
-      }, 1000);
-    }, 3000);
+      }, 1000); // Espera a transição de 1s
+    }, 2000); // Dura 2 segundos no total
   </script>
 </body>
 </html>
